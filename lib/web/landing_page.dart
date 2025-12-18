@@ -912,7 +912,7 @@ class GreywayLandingPage extends StatelessWidget {
                   ),
                   SizedBox(height: 8),
                   Text(
-                    "Born at KwaLegend Academy, Zimbabwe | Sir Legend holds 30% equity",
+                    "Born at KwaLegend Academy, Zimbabwe | Co-founded by Nyasha Gabriel & Sir Legend",
                     style: TextStyle(color: Colors.white24, fontSize: 10),
                   ),
                   SizedBox(height: 20),

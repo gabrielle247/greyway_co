@@ -293,7 +293,7 @@ class AboutPage extends StatelessWidget {
                 blue,
                 "Sir Legend",
                 "Teacher & Co-Founder (KwaLegend Academy, Harare)",
-                "Teacher at KwaLegend Academy in Harare, Zimbabwe. Original visionary who identified the need for offline billing while managing extra lessons. Holds 30% equity stake. Provides real-world testing, teacher insights, and marketing strategy from the classroom perspective.",
+                "Teacher at KwaLegend Academy in Harare, Zimbabwe. Original visionary who identified the need for offline billing while managing extra lessons. Co-founder and strategic partner providing real-world testing, teacher insights, and marketing strategy from the classroom perspective.",
                 [
                   "Original Problem Identifier",
                   "Classroom Testing & Feedback",
@@ -427,10 +427,10 @@ class AboutPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _partnershipCard(surface, blue, "Equity Distribution", [
-                "Nyasha Gabriel: Lead Architect (70%)",
-                "Sir Legend (KwaLegend): Strategic Partner (30%)",
-                "Formal co-ownership structure",
+              _partnershipCard(surface, blue, "Partnership Structure", [
+                "Nyasha Gabriel: Lead Architect & Developer",
+                "Sir Legend: Co-Founder & Strategic Partner",
+                "Formal co-ownership agreement",
                 "Shared decision-making on strategic direction",
               ]),
               _partnershipCard(surface, blue, "Operational Roles", [
@@ -604,7 +604,7 @@ class AboutPage extends StatelessWidget {
                   ),
                   SizedBox(height: 8),
                   Text(
-                    "Strategic Partnership: Sir Legend holds 30% equity stake",
+                    "Co-founded by Nyasha Gabriel & Sir Legend",
                     style: TextStyle(color: Colors.white24, fontSize: 10),
                   ),
                   SizedBox(height: 20),

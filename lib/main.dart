@@ -35,27 +35,27 @@ Future<void> main() async {
   runApp(const GreywayWebsite());
 }
 
-/// The main entry point for the Greyway.Co Institutional Site
+/// The main entry point for the Greyway Co Institutional Infrastructure Gateway
 class GreywayWebsite extends StatelessWidget {
   const GreywayWebsite({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'Greyway.Co | Education Infrastructure',
+      title: '🏛️ Greyway Co | Gateway to the Modern School',
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.dark,
-      // Institutional Dark Blue Theme
+      // Greyway Co Institutional Dark Blue Theme (Per Infrastructure Briefing)
       darkTheme: ThemeData(
         brightness: Brightness.dark,
-        scaffoldBackgroundColor: const Color(0xff121b22),
+        scaffoldBackgroundColor: const Color(0xff121b22), // Institutional Dark Blue
         primaryColor: Colors.blue,
         useMaterial3: true,
-        fontFamily: 'Poppins',
+        fontFamily: 'Poppins', // Required by Greyway Co branding standards
         colorScheme: const ColorScheme.dark(
           primary: Colors.blue,
           secondary: Colors.blueAccent,
-          surface: Color(0xff1c2a35),
+          surface: Color(0xff1c2a35), // Surface Color per spec
           onSurface: Colors.white,
         ),
         appBarTheme: const AppBarTheme(

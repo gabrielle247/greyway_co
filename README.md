@@ -1,15 +1,25 @@
-# Greyway.Co - Fees Up Product Site
+# 🏛️ Greyway Co - Institutional Infrastructure Gateway
 
-A professional Flutter web product marketing site for **Fees Up**, an offline-first school billing and management system.
+The official institutional portal for **Fees Up**—foundational infrastructure for school data sovereignty and financial resilience. This is not the backend application; it is the **Gateway to the Modern School**.
 
 ## 🎯 What This Is
 
-This is the **public-facing product marketing website** for Fees Up—not the backend application. It serves as:
-- **Landing page** with institutional positioning
-- **Product features showcase**
-- **Pricing & pilot information**
-- **Case studies & testimonials**
-- **Pilot application intake** (to qualified schools)
+This is the **institutional infrastructure briefing and assessment portal** for Fees Up. It serves as:
+- **Infrastructure positioning** - Authority over convenience
+- **Decision system showcase** - Not a tool, but infrastructure
+- **Eligibility vetting gate** - Institutions are selected based on operational readiness
+- **Deployment case studies** - Institutional impact metrics
+- **Assessment intake** - Formal institutional onboarding process
+
+### 🤝 Partnership & Attribution
+
+**Conceptualized by Nyasha Gabriel & Sir Legend (KwaLegend)**
+
+- **Lead Architect**: Nyasha Gabriel
+- **Strategic Partner**: Sir Legend (30% equity stake)
+- **Original Visionary**: Sir Legend contributed the foundational idea and marketing strategy
+- **Development Sponsor**: KwaLegend sponsors data and testing infrastructure
+- **Corporate Identity**: Greyway Co (formerly Batch Tech Venture)
 
 ## 🚀 Live Deployment
 
@@ -33,34 +43,35 @@ greyway_co/
 └── .env                          # Secrets (gitignored)
 ```
 
-## 🔑 Key Pages
+## 🔑 Key Infrastructure Components
 
-### 1. **Landing Page** (`/`)
-- Hero section with value proposition
-- Problem statement (3 pain points)
-- Solution overview
-- 6 feature boxes
-- Institutional authority positioning
-- Pilot pricing tiers
-- Case study/testimonial with metrics
-- FAQ section
-- Navigation to pilot wizard
+### 1. **Institutional Landing Gateway** (`/`)
+- Hero: "Gateway to the Modern School" positioning
+- The Institutional Gap (3 operational fragilities)
+- Infrastructure Deployment overview
+- 6 capability modules (resilient architecture, audit-ready docs, decision intelligence)
+- The Greyway Co Advantage (vetting, resilience, sovereignty)
+- Institutional Onboarding (not "pricing"—assessment tiers)
+- Deployment case study with institutional metrics
+- Institutional onboarding FAQ
+- Full attribution footer (Nyasha Gabriel & Sir Legend)
 
-### 2. **Pilot Wizard** (`/pilot`)
-- Multi-step institutional intake form
+### 2. **Eligibility Assessment Wizard** (`/pilot`)
+- Multi-step institutional vetting form
 - Form validation (TextFormField-based)
 - Authorization gating
 - Writes to Supabase `school_applications` table
 - Success confirmation screen with Application ID
 - Portable to any server (--base-href=/)
 
-## 🛠 Tech Stack
+## 🛠 Infrastructure Stack
 
-- **Flutter 3.27+** - Cross-platform UI
-- **Dart 3.6+** - Language
-- **GoRouter 17+** - Navigation
-- **Supabase 2.12+** - Backend (write-only intake table)
-- **flutter_dotenv 5.2+** - Secrets management
+- **Flutter 3.27+** - Cross-platform institutional portal framework
+- **Dart 3.6+** - Type-safe infrastructure language
+- **GoRouter 17+** - Gateway routing architecture
+- **Supabase 2.12+** - Write-only institutional assessment registry
+- **flutter_dotenv 5.2+** - Infrastructure secrets management
+- **PowerSync** - Real-time bidirectional synchronization (referenced in product positioning)
 
 ## 📦 Setup
 
@@ -142,30 +153,32 @@ submitted_at, created_at, updated_at
 
 **RLS Policy:** Insert-only. Clients cannot select/update/delete.
 
-## ✅ Features
+## ✅ Infrastructure Capabilities
 
-### Landing Page
-- [x] Institutional positioning
-- [x] Problem/solution narrative
-- [x] 6 feature boxes
-- [x] Pricing tiers
-- [x] Case study with metrics
-- [x] FAQ section
-- [x] Navigation menu
+### Institutional Gateway (Landing)
+- [x] Authority positioning - "Gateway to the Modern School"
+- [x] Institutional gap narrative (operational fragilities)
+- [x] Infrastructure deployment showcase (6 capabilities)
+- [x] Institutional onboarding tiers (not "pricing"—vetting-based)
+- [x] Deployment case study with institutional metrics
+- [x] Institutional onboarding FAQ
+- [x] Full partnership attribution (Nyasha Gabriel & Sir Legend)
+- [x] Navigation to assessment intake
 
-### Pilot Intake Wizard
-- [x] 6-step form (readiness → institution → capacity → infrastructure → applicant → legal)
-- [x] Form validation (TextFormField)
-- [x] Authorization gating
-- [x] Supabase write integration
-- [x] Success confirmation with Application ID
+### Eligibility Assessment System
+- [x] 6-phase institutional readiness form
+- [x] Hard validation (GlobalKey<FormState>, TextFormField)
+- [x] Legal authorization checkpoint
+- [x] Write-only Supabase registry integration
+- [x] Application ID generation (timestamp-based)
+- [x] Bidirectional navigation (Previous/Next)
 
-### CI/CD
-- [x] GitHub Actions web build
-- [x] Multi-platform artifacts (Android, Linux)
-- [x] GitHub Pages auto-deploy
-- [x] Portable web bundle (--base-href=/)
-- [x] Environment secrets injection
+### Infrastructure Deployment (CI/CD)
+- [x] GitHub Actions portable web build
+- [x] Multi-platform artifacts (Android APK, Linux executable)
+- [x] Automatic GitHub Pages deployment
+- [x] Portable web bundle (`--base-href=/`)
+- [x] Secrets injection via `--dart-define` flags
 
 ## 🧪 Testing
 
@@ -190,24 +203,42 @@ python3 -m http.server 8080
 - **Supabase Schema:** [supabase/schema.sql](supabase/schema.sql)
 - **Secrets Config:** [lib/config/secrets.dart](lib/config/secrets.dart)
 
-## 🚀 Next Steps
+## 🚀 Institutional Roadmap
 
-- Add form submission email notifications
-- Track pilot applications in admin dashboard
-- A/B test landing page headlines
-- Add customer testimonial videos
-- Implement contact form
-- Set up analytics (Google Analytics / Mixpanel)
+### Phase 0: Assessment (Current)
+- [x] Eligibility vetting gate deployed
+- [x] Institutional assessment intake
+- [ ] Assessment notification system (email to Greyway Co operations)
+- [ ] Admin dashboard for institutional review queue
 
-## 📞 Support
+### Phase 1: Deployment Enhancements
+- [ ] Institutional testimonial video library
+- [ ] Enhanced case study repository
+- [ ] Partnership acknowledgment page (Nyasha Gabriel & Sir Legend detailed history)
+- [ ] Integration showcase (PowerSync, Supabase architecture)
 
-- **Issues:** [GitHub Issues](https://github.com/gabrielle247/greyway_co/issues)
-- **Deployments:** Check [GitHub Actions](https://github.com/gabrielle247/greyway_co/actions)
+### Phase 2: Operational Intelligence
+- [ ] Assessment analytics dashboard
+- [ ] A/B testing for institutional messaging
+- [ ] Contact/support infrastructure for selected institutions
 
-## 📄 License
+## 📞 Institutional Support
 
-MIT License © 2025 Batch Tech Venture
+- **Assessment Inquiries:** [GitHub Issues](https://github.com/gabrielle247/greyway_co/issues)
+- **Deployment Status:** Check [GitHub Actions](https://github.com/gabrielle247/greyway_co/actions)
+- **Partnership Inquiries:** Contact Nyasha Gabriel or Sir Legend (KwaLegend)
+
+## 📄 Corporate Governance
+
+**Greyway Co** (Formerly Batch Tech Venture)
+
+- **Lead Architect**: Nyasha Gabriel
+- **Strategic Partner**: Sir Legend (KwaLegend) - 30% equity stake
+- **Development Sponsor**: KwaLegend
+
+**License**: MIT License © 2025 Greyway Co
 
 ---
 
-**Made with ❤️ using Flutter**
+**🏛️ Gateway to the Modern School**  
+*Conceptualized by Nyasha Gabriel & Sir Legend (KwaLegend)*

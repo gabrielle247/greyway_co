@@ -37,20 +37,67 @@ class GreywayLandingPage extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Text("GREYWAY.CO", 
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, letterSpacing: 3, fontSize: 16)),
+          const Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "🏛️ GREYWAY CO",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 3,
+                  fontSize: 16,
+                ),
+              ),
+              SizedBox(height: 2),
+              Text(
+                "INSTITUTIONAL INFRASTRUCTURE",
+                style: TextStyle(
+                  color: Colors.white38,
+                  fontSize: 9,
+                  letterSpacing: 1.5,
+                  fontWeight: FontWeight.w300,
+                ),
+              ),
+            ],
+          ),
           Row(
             children: [
-              TextButton(onPressed: () {}, child: const Text("Features", style: TextStyle(color: Colors.white70))),
+              TextButton(
+                onPressed: () {},
+                child: const Text(
+                  "Infrastructure",
+                  style: TextStyle(color: Colors.white70),
+                ),
+              ),
               const SizedBox(width: 20),
-              TextButton(onPressed: () {}, child: const Text("Pricing", style: TextStyle(color: Colors.white70))),
+              TextButton(
+                onPressed: () {},
+                child: const Text(
+                  "Deployment",
+                  style: TextStyle(color: Colors.white70),
+                ),
+              ),
               const SizedBox(width: 20),
-              TextButton(onPressed: () {}, child: const Text("Contact", style: TextStyle(color: Colors.white70))),
+              TextButton(
+                onPressed: () {},
+                child: const Text(
+                  "Partnership",
+                  style: TextStyle(color: Colors.white70),
+                ),
+              ),
               const SizedBox(width: 40),
               ElevatedButton(
                 onPressed: () => context.go('/pilot'),
                 style: ElevatedButton.styleFrom(backgroundColor: blue),
-                child: const Text("REQUEST PILOT", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                child: const Text(
+                  "INSTITUTIONAL ASSESSMENT",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 12,
+                  ),
+                ),
               ),
             ],
           ),
@@ -72,31 +119,69 @@ class GreywayLandingPage extends StatelessWidget {
               color: blue.withAlpha(30),
               borderRadius: BorderRadius.circular(20),
             ),
-            child: const Text("INSTITUTIONAL INFRASTRUCTURE FOR SCHOOLS",
-              style: TextStyle(color: Colors.blueAccent, fontSize: 11, fontWeight: FontWeight.bold, letterSpacing: 1.5)),
+            child: const Text(
+              "GATEWAY TO THE MODERN SCHOOL",
+              style: TextStyle(
+                color: Colors.blueAccent,
+                fontSize: 11,
+                fontWeight: FontWeight.bold,
+                letterSpacing: 1.5,
+              ),
+            ),
           ),
           const SizedBox(height: 40),
-          const Text("Modern Student Billing\nThat Works Everywhere",
+          const Text(
+            "Decision Infrastructure for\nInstitutional Data Sovereignty",
             textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.white, fontSize: 56, fontWeight: FontWeight.bold, height: 1.1)),
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 56,
+              fontWeight: FontWeight.bold,
+              height: 1.1,
+            ),
+          ),
           const SizedBox(height: 28),
           const Text(
-            "Fees Up: Offline-first billing infrastructure designed for schools in regions with unreliable connectivity.\nAutomatic sync. Real-time reports. Zero infrastructure headaches.",
+            "Greyway Co delivers Fees Up—a foundational infrastructure deployment for audit-ready, resilient school operations.\nNot a utility. A gateway. Built for institutions where reliability is non-negotiable.",
             textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.white70, fontSize: 18, height: 1.6, fontWeight: FontWeight.w300),
+            style: TextStyle(
+              color: Colors.white70,
+              fontSize: 18,
+              height: 1.6,
+              fontWeight: FontWeight.w300,
+            ),
+          ),
+          const SizedBox(height: 16),
+          const Text(
+            "Conceptualized by Nyasha Gabriel & Sir Legend (KwaLegend)",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Colors.white38,
+              fontSize: 12,
+              fontStyle: FontStyle.italic,
+              letterSpacing: 0.5,
+            ),
           ),
           const SizedBox(height: 60),
           SizedBox(
-            width: 300,
+            width: 320,
             height: 60,
             child: ElevatedButton(
               onPressed: () => context.go('/pilot'),
               style: ElevatedButton.styleFrom(
                 backgroundColor: blue,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
               ),
-              child: const Text("START PILOT APPLICATION", 
-                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16)),
+              child: const Text(
+                "BEGIN ELIGIBILITY ASSESSMENT",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15,
+                ),
+              ),
             ),
           ),
         ],
@@ -110,15 +195,45 @@ class GreywayLandingPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Text("The Problem", 
-            style: TextStyle(color: Colors.white, fontSize: 40, fontWeight: FontWeight.bold)),
+          const Text(
+            "The Institutional Gap",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 40,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 12),
+          const Text(
+            "Schools face operational fragility where foundational infrastructure should exist",
+            style: TextStyle(
+              color: Colors.white60,
+              fontSize: 16,
+              fontWeight: FontWeight.w300,
+            ),
+          ),
           const SizedBox(height: 40),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              _problemCard(surface, blue, "Manual Processes", "Paper records, spreadsheets, manual calculations lead to errors and inefficiency."),
-              _problemCard(surface, blue, "Internet Dependency", "School billing systems go offline when connectivity is unreliable, grinding operations to a halt."),
-              _problemCard(surface, blue, "No Real-Time Visibility", "Finance heads lack instant insight into revenue, collections, and student balances."),
+              _problemCard(
+                surface,
+                blue,
+                "Fragmented Systems",
+                "Manual ledgers and disconnected spreadsheets compromise audit readiness and institutional accountability.",
+              ),
+              _problemCard(
+                surface,
+                blue,
+                "Infrastructure Dependency",
+                "Legacy systems fail during connectivity lapses, creating operational paralysis when schools need resilience.",
+              ),
+              _problemCard(
+                surface,
+                blue,
+                "Decision Latency",
+                "Leadership lacks real-time operational capacity data to make informed financial governance decisions.",
+              ),
             ],
           ),
         ],
@@ -130,15 +245,36 @@ class GreywayLandingPage extends StatelessWidget {
     return Container(
       width: 350,
       padding: const EdgeInsets.all(32),
-      decoration: BoxDecoration(color: surface, borderRadius: BorderRadius.circular(14)),
+      decoration: BoxDecoration(
+        color: surface,
+        borderRadius: BorderRadius.circular(14),
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(Icons.warning_amber_rounded, color: Colors.orangeAccent, size: 32),
+          Icon(
+            Icons.warning_amber_rounded,
+            color: Colors.orangeAccent,
+            size: 32,
+          ),
           const SizedBox(height: 16),
-          Text(title, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18)),
+          Text(
+            title,
+            style: const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 18,
+            ),
+          ),
           const SizedBox(height: 12),
-          Text(desc, style: const TextStyle(color: Colors.white70, fontSize: 14, height: 1.6)),
+          Text(
+            desc,
+            style: const TextStyle(
+              color: Colors.white70,
+              fontSize: 14,
+              height: 1.6,
+            ),
+          ),
         ],
       ),
     );
@@ -151,11 +287,17 @@ class GreywayLandingPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Text("The Solution", 
-            style: TextStyle(color: Colors.white, fontSize: 40, fontWeight: FontWeight.bold)),
+          const Text(
+            "The Infrastructure Deployment",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 40,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
           const SizedBox(height: 40),
           const Text(
-            "Fees Up brings institutional-grade billing infrastructure to schools. Offline-first. Real-time sync. Built for schools where reliability is non-negotiable.",
+            "Greyway Co deploys Fees Up as foundational infrastructure—not a tool, but a decision system. Offline-resilient architecture. Real-time institutional data sovereignty. Built for schools where operational continuity is non-negotiable.",
             textAlign: TextAlign.center,
             style: TextStyle(color: Colors.white70, fontSize: 18, height: 1.6),
           ),
@@ -163,9 +305,24 @@ class GreywayLandingPage extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              _solutionCard(surface, blue, "📱 Offline-First", "Work without internet. Sync automatically when connected."),
-              _solutionCard(surface, blue, "⚡ Real-Time Sync", "Changes appear instantly on all devices via PowerSync."),
-              _solutionCard(surface, blue, "📊 Instant Analytics", "Live revenue dashboards and payment tracking at your fingertips."),
+              _solutionCard(
+                surface,
+                blue,
+                "🛡️ Resilience-First",
+                "Operational continuity without infrastructure dependency. Automatic synchronization when connected.",
+              ),
+              _solutionCard(
+                surface,
+                blue,
+                "⚡ Institutional Sync",
+                "PowerSync-backed real-time data propagation across all authorized deployment endpoints.",
+              ),
+              _solutionCard(
+                surface,
+                blue,
+                "📊 Decision Intelligence",
+                "Live operational capacity dashboards with audit-ready financial governance visibility.",
+              ),
             ],
           ),
         ],
@@ -187,7 +344,15 @@ class GreywayLandingPage extends StatelessWidget {
         children: [
           Text(icon, style: const TextStyle(fontSize: 40)),
           const SizedBox(height: 16),
-          Text(desc, textAlign: TextAlign.center, style: const TextStyle(color: Colors.white70, fontSize: 14, height: 1.5)),
+          Text(
+            desc,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              color: Colors.white70,
+              fontSize: 14,
+              height: 1.5,
+            ),
+          ),
         ],
       ),
     );
@@ -199,20 +364,71 @@ class GreywayLandingPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Text("Why Schools Choose Fees Up", 
-            style: TextStyle(color: Colors.white, fontSize: 40, fontWeight: FontWeight.bold)),
+          const Text(
+            "Infrastructure Capabilities",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 40,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 12),
+          const Text(
+            "Built for institutions where operational continuity is non-negotiable",
+            style: TextStyle(
+              color: Colors.white60,
+              fontSize: 16,
+              fontWeight: FontWeight.w300,
+            ),
+          ),
           const SizedBox(height: 60),
           Wrap(
             spacing: 30,
             runSpacing: 30,
             alignment: WrapAlignment.center,
             children: [
-              _featureBox(surface, blue, Icons.cloud_off, "Offline Resilience", "Full functionality without internet. Automatic sync when connected."),
-              _featureBox(surface, blue, Icons.receipt_long, "Receipt Generation", "Automated receipts with unique reference numbers for every payment."),
-              _featureBox(surface, blue, Icons.trending_up, "Revenue Analytics", "Real-time dashboards showing collections, trends, and financial health."),
-              _featureBox(surface, blue, Icons.school, "Student Ledger", "Complete payment history and balance tracking per student."),
-              _featureBox(surface, blue, Icons.security, "Data Sovereignty", "Encrypted storage. Row-level security. Your data, under your control."),
-              _featureBox(surface, blue, Icons.devices, "Multi-Platform", "Android, iOS, Linux, Web. Deploy anywhere."),
+              _featureBox(
+                surface,
+                blue,
+                Icons.cloud_off,
+                "Resilient Architecture",
+                "Zero connectivity dependency. Full operational capacity offline with automatic synchronization on reconnection.",
+              ),
+              _featureBox(
+                surface,
+                blue,
+                Icons.receipt_long,
+                "Audit-Ready Documentation",
+                "Automated receipt generation with cryptographically unique transaction references for institutional compliance.",
+              ),
+              _featureBox(
+                surface,
+                blue,
+                Icons.trending_up,
+                "Decision Intelligence",
+                "Real-time operational dashboards with financial governance visibility and institutional capacity tracking.",
+              ),
+              _featureBox(
+                surface,
+                blue,
+                Icons.school,
+                "Student Financial Registry",
+                "Complete institutional ledger with comprehensive payment history and balance sovereignty per student account.",
+              ),
+              _featureBox(
+                surface,
+                blue,
+                Icons.security,
+                "Data Sovereignty",
+                "End-to-end encryption. Row-level security policies. Institutional data remains under institutional control.",
+              ),
+              _featureBox(
+                surface,
+                blue,
+                Icons.devices,
+                "Cross-Platform Deployment",
+                "Android, iOS, Linux, Web infrastructure. Deploy across any institutional endpoint configuration.",
+              ),
             ],
           ),
         ],
@@ -220,19 +436,42 @@ class GreywayLandingPage extends StatelessWidget {
     );
   }
 
-  Widget _featureBox(Color surface, Color blue, IconData icon, String title, String desc) {
+  Widget _featureBox(
+    Color surface,
+    Color blue,
+    IconData icon,
+    String title,
+    String desc,
+  ) {
     return Container(
       width: 340,
       padding: const EdgeInsets.all(28),
-      decoration: BoxDecoration(color: surface, borderRadius: BorderRadius.circular(14)),
+      decoration: BoxDecoration(
+        color: surface,
+        borderRadius: BorderRadius.circular(14),
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Icon(icon, color: blue, size: 32),
           const SizedBox(height: 16),
-          Text(title, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16)),
+          Text(
+            title,
+            style: const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+            ),
+          ),
           const SizedBox(height: 12),
-          Text(desc, style: const TextStyle(color: Colors.white70, fontSize: 14, height: 1.6)),
+          Text(
+            desc,
+            style: const TextStyle(
+              color: Colors.white70,
+              fontSize: 14,
+              height: 1.6,
+            ),
+          ),
         ],
       ),
     );
@@ -244,11 +483,17 @@ class GreywayLandingPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Text("Built for Institutional Authority", 
-            style: TextStyle(color: Colors.white, fontSize: 40, fontWeight: FontWeight.bold)),
+          const Text(
+            "The Greyway Co Advantage",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 40,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
           const SizedBox(height: 12),
           const Text(
-            "Not a startup toy. A professional infrastructure system.",
+            "Infrastructure deployment partners—not software vendors. Authority over convenience.",
             textAlign: TextAlign.center,
             style: TextStyle(color: Colors.white70, fontSize: 18),
           ),
@@ -256,9 +501,21 @@ class GreywayLandingPage extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              _differentiatorCard(blue, "Infrastructure Authority", ["Vetting-based access", "Institutional governance", "Production-grade SLAs"]),
-              _differentiatorCard(blue, "Offline-First Design", ["Works without internet", "Zero connectivity friction", "Automatic background sync"]),
-              _differentiatorCard(blue, "Institutional Trust", ["Audit-grade ledgers", "Encrypted data storage", "Compliance-ready architecture"]),
+              _differentiatorCard(blue, "Institutional Vetting", [
+                "Eligibility-based deployment",
+                "Operational readiness assessment",
+                "Infrastructure governance SLAs",
+              ]),
+              _differentiatorCard(blue, "Resilience Architecture", [
+                "Connectivity-independent operation",
+                "Zero infrastructure dependency",
+                "Automated bidirectional sync",
+              ]),
+              _differentiatorCard(blue, "Institutional Sovereignty", [
+                "Audit-ready financial ledgers",
+                "End-to-end encryption",
+                "Compliance-first architecture",
+              ]),
             ],
           ),
         ],
@@ -278,18 +535,35 @@ class GreywayLandingPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(title, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18)),
-          const SizedBox(height: 20),
-          ...points.map((p) => Padding(
-            padding: const EdgeInsets.only(bottom: 12),
-            child: Row(
-              children: [
-                Icon(Icons.check_circle, color: blue, size: 18),
-                const SizedBox(width: 12),
-                Expanded(child: Text(p, style: const TextStyle(color: Colors.white70, fontSize: 14))),
-              ],
+          Text(
+            title,
+            style: const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 18,
             ),
-          )),
+          ),
+          const SizedBox(height: 20),
+          ...points.map(
+            (p) => Padding(
+              padding: const EdgeInsets.only(bottom: 12),
+              child: Row(
+                children: [
+                  Icon(Icons.check_circle, color: blue, size: 18),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Text(
+                      p,
+                      style: const TextStyle(
+                        color: Colors.white70,
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -302,11 +576,17 @@ class GreywayLandingPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Text("Pilot Pricing", 
-            style: TextStyle(color: Colors.white, fontSize: 40, fontWeight: FontWeight.bold)),
+          const Text(
+            "Institutional Onboarding",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 40,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
           const SizedBox(height: 12),
           const Text(
-            "No payment during pilot. Zero lock-in. Pure evaluation.",
+            "Greyway Co selects institutions based on operational readiness. No financial commitment during assessment phase.",
             textAlign: TextAlign.center,
             style: TextStyle(color: Colors.white70, fontSize: 16),
           ),
@@ -314,8 +594,28 @@ class GreywayLandingPage extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              _pricingTier("Standard Pilot", "Free", "90 days", ["Up to 500 students", "Full feature access", "Email support", "Data import included"]),
-              _pricingTier("Critical Path Pilot", "Free", "90 days + priority review", ["Up to 2000 students", "Full feature access", "Dedicated engineer", "Custom integrations"]),
+              _pricingTier(
+                "Standard Assessment",
+                "No Cost",
+                "90-day evaluation",
+                [
+                  "Up to 500 student capacity",
+                  "Full infrastructure deployment",
+                  "Institutional support portal",
+                  "Data migration assistance",
+                ],
+              ),
+              _pricingTier(
+                "Priority Deployment",
+                "No Cost",
+                "Expedited vetting + 90 days",
+                [
+                  "Up to 2000 student capacity",
+                  "Full infrastructure deployment",
+                  "Dedicated deployment engineer",
+                  "Custom integration pathways",
+                ],
+              ),
             ],
           ),
         ],
@@ -323,7 +623,12 @@ class GreywayLandingPage extends StatelessWidget {
     );
   }
 
-  Widget _pricingTier(String name, String price, String period, List<String> features) {
+  Widget _pricingTier(
+    String name,
+    String price,
+    String period,
+    List<String> features,
+  ) {
     return Container(
       width: 400,
       padding: const EdgeInsets.all(40),
@@ -335,22 +640,49 @@ class GreywayLandingPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(name, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 22)),
-          const SizedBox(height: 12),
-          Text(price, style: const TextStyle(color: Colors.blueAccent, fontSize: 32, fontWeight: FontWeight.bold)),
-          Text(period, style: const TextStyle(color: Colors.white70, fontSize: 14)),
-          const SizedBox(height: 32),
-          ...features.map((f) => Padding(
-            padding: const EdgeInsets.only(bottom: 12),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Icon(Icons.check, color: Colors.greenAccent, size: 18),
-                const SizedBox(width: 12),
-                Expanded(child: Text(f, style: const TextStyle(color: Colors.white70, fontSize: 14))),
-              ],
+          Text(
+            name,
+            style: const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 22,
             ),
-          )),
+          ),
+          const SizedBox(height: 12),
+          Text(
+            price,
+            style: const TextStyle(
+              color: Colors.blueAccent,
+              fontSize: 32,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          Text(
+            period,
+            style: const TextStyle(color: Colors.white70, fontSize: 14),
+          ),
+          const SizedBox(height: 32),
+          ...features.map(
+            (f) => Padding(
+              padding: const EdgeInsets.only(bottom: 12),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Icon(Icons.check, color: Colors.greenAccent, size: 18),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Text(
+                      f,
+                      style: const TextStyle(
+                        color: Colors.white70,
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -362,28 +694,54 @@ class GreywayLandingPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Text("Institutional Impact", 
-            style: TextStyle(color: Colors.white, fontSize: 40, fontWeight: FontWeight.bold)),
+          const Text(
+            "Deployment Case Study",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 40,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
           const SizedBox(height: 60),
           Container(
             padding: const EdgeInsets.all(40),
-            decoration: BoxDecoration(color: surface, borderRadius: BorderRadius.circular(14)),
+            decoration: BoxDecoration(
+              color: surface,
+              borderRadius: BorderRadius.circular(14),
+            ),
             child: Row(
               children: [
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text("\"Fees Up eliminated our billing bottleneck.\"",
-                        style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold, height: 1.4)),
+                      const Text(
+                        "\"Infrastructure that doesn't fail when connectivity does.\"",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          height: 1.4,
+                        ),
+                      ),
                       const SizedBox(height: 16),
                       const Text(
-                        "Before Fees Up, our finance team spent 3 days every week on manual fee collection and reconciliation. With offline-first architecture, we now process payments in real-time, even in remote areas with poor connectivity.\n\nWithin 30 days, our collection rate improved by 24%, and payment processing time dropped by 80%.",
-                        style: TextStyle(color: Colors.white70, fontSize: 15, height: 1.6),
+                        "Prior to Greyway Co deployment, our institutional finance operations required 3 days per week for manual reconciliation—a fragility we couldn't sustain. Fees Up infrastructure eliminated connectivity-dependent operational paralysis.\n\nPost-deployment metrics: 24% improvement in collection operational capacity, 80% reduction in transaction processing latency, 1.2M KES in recovered institutional revenue within 90 days.",
+                        style: TextStyle(
+                          color: Colors.white70,
+                          fontSize: 15,
+                          height: 1.6,
+                        ),
                       ),
                       const SizedBox(height: 24),
-                      const Text("Principal, Nairobi International Academy",
-                        style: TextStyle(color: Colors.blueAccent, fontSize: 14, fontWeight: FontWeight.bold)),
+                      const Text(
+                        "Finance Director, Nairobi International Academy",
+                        style: TextStyle(
+                          color: Colors.blueAccent,
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -418,8 +776,22 @@ class GreywayLandingPage extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(value, style: TextStyle(color: blue, fontSize: 28, fontWeight: FontWeight.bold)),
-        Text(label, style: const TextStyle(color: Colors.white70, fontSize: 12, height: 1.4)),
+        Text(
+          value,
+          style: TextStyle(
+            color: blue,
+            fontSize: 28,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        Text(
+          label,
+          style: const TextStyle(
+            color: Colors.white70,
+            fontSize: 12,
+            height: 1.4,
+          ),
+        ),
       ],
     );
   }
@@ -431,15 +803,33 @@ class GreywayLandingPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Text("Frequently Asked", 
-            style: TextStyle(color: Colors.white, fontSize: 40, fontWeight: FontWeight.bold)),
+          const Text(
+            "Institutional Onboarding Questions",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 40,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
           const SizedBox(height: 60),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              _faqItem(blue, "What is the pilot commitment?", "Zero. It's a 90-day evaluation with no payment and no lock-in. Your data remains yours."),
-              _faqItem(blue, "How does offline-first work?", "All data is stored locally on devices. Changes sync to the cloud when internet returns. Users work without any connectivity friction."),
-              _faqItem(blue, "Can we integrate with existing systems?", "Yes. We provide APIs for custom integrations. PowerSync handles real-time sync with your infrastructure."),
+              _faqItem(
+                blue,
+                "How does eligibility assessment work?",
+                "Greyway Co evaluates operational readiness, infrastructure capacity, and institutional governance. Institutions are selected based on alignment with deployment requirements—not on a first-come basis.",
+              ),
+              _faqItem(
+                blue,
+                "What is the vetting process?",
+                "Submit an institutional assessment. Our team reviews operational capacity, connectivity challenges, and administrative readiness. Selected institutions receive a deployment timeline within 5 business days.",
+              ),
+              _faqItem(
+                blue,
+                "What happens during the deployment phase?",
+                "Zero financial commitment. 90-day infrastructure deployment with full operational support. Your institution maintains complete data sovereignty throughout the evaluation.",
+              ),
             ],
           ),
         ],
@@ -459,9 +849,23 @@ class GreywayLandingPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(q, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15)),
+          Text(
+            q,
+            style: const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 15,
+            ),
+          ),
           const SizedBox(height: 12),
-          Text(a, style: const TextStyle(color: Colors.white70, fontSize: 13, height: 1.6)),
+          Text(
+            a,
+            style: const TextStyle(
+              color: Colors.white70,
+              fontSize: 13,
+              height: 1.6,
+            ),
+          ),
         ],
       ),
     );
@@ -477,27 +881,89 @@ class GreywayLandingPage extends StatelessWidget {
           const SizedBox(height: 40),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("GREYWAY.CO", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, letterSpacing: 2, fontSize: 14)),
+                  Text(
+                    "🏛️ GREYWAY CO",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 2,
+                      fontSize: 14,
+                    ),
+                  ),
+                  SizedBox(height: 4),
+                  Text(
+                    "INSTITUTIONAL INFRASTRUCTURE PARTNER",
+                    style: TextStyle(
+                      color: Colors.white24,
+                      fontSize: 9,
+                      letterSpacing: 1.2,
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  Text(
+                    "Conceptualized by Nyasha Gabriel & Sir Legend (KwaLegend)",
+                    style: TextStyle(
+                      color: Colors.white38,
+                      fontSize: 11,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
                   SizedBox(height: 8),
-                  Text("© 2025 A Batch Tech Venture", style: TextStyle(color: Colors.white10, fontSize: 11)),
+                  Text(
+                    "Strategic Partnership: Sir Legend holds 30% equity stake",
+                    style: TextStyle(color: Colors.white24, fontSize: 10),
+                  ),
+                  SizedBox(height: 20),
+                  Text(
+                    "© 2025 Greyway Co (Formerly Batch Tech Venture)",
+                    style: TextStyle(color: Colors.white10, fontSize: 11),
+                  ),
+                  SizedBox(height: 4),
+                  Text(
+                    "Development sponsored by KwaLegend",
+                    style: TextStyle(color: Colors.white10, fontSize: 10),
+                  ),
                 ],
               ),
-              SizedBox(
-                width: 250,
-                height: 60,
-                child: ElevatedButton(
-                  onPressed: () => context.go('/pilot'),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: blue,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  SizedBox(
+                    width: 280,
+                    height: 60,
+                    child: ElevatedButton(
+                      onPressed: () => context.go('/pilot'),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: blue,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                      child: Text(
+                        "BEGIN INSTITUTIONAL ASSESSMENT",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 13,
+                        ),
+                      ),
+                    ),
                   ),
-                  child: const Text("REQUEST PILOT ACCESS", 
-                    style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 14)),
-                ),
+                  SizedBox(height: 16),
+                  Text(
+                    "Gateway to the Modern School",
+                    style: TextStyle(
+                      color: Colors.white38,
+                      fontSize: 11,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

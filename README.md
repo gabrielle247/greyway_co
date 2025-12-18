@@ -1,33 +1,76 @@
 # greyway_co
 
-A new Flutter project.
+Greyway.Co | Fees Up - Institutional Student Billing Infrastructure
 
-## CI: Web Build (GitHub Actions)
+## 🚀 Continuous Integration & Deployment
 
-This repository builds the Flutter web bundle on every push/PR to `main` using GitHub Actions.
+This repository uses GitHub Actions to build **portable** web, Android, and Linux artifacts. All builds work from any root path (localhost, GitHub Pages, or custom domain) with zero reconfiguration.
 
-- Workflow: [.github/workflows/web-build.yml](.github/workflows/web-build.yml)
-- Badge: ![Web Build](https://github.com/gabrielle247/greyway_co/actions/workflows/web-build.yml/badge.svg?branch=main)
-- Secrets required (configured in repo settings): `SUPABASE_URL`, `SUPABASE_ANON_KEY`, `POWERSYNC_ENDPOINT_URL`
+### Workflow: Build Institutional Artifacts
 
-### Downloading the web artifact
+- **File:** [.github/workflows/build_artifacts.yml](.github/workflows/build_artifacts.yml)
+- **Trigger:** Push to `main` or `master`, or manual dispatch
+- **Outputs:**
+  - 🌐 Web: `greyway-web-portal` (tar.gz, portable)
+  - 📱 Android: `greyway-android-release` (APK)
+  - 🖥️ Linux: `greyway-linux-release` (tar.gz bundle)
 
-1. Go to Actions → Web Build → select the latest run on `main`.
-2. Under Artifacts, download `greyway-web-build`.
-3. Unzip and serve `build/web` with any static server.
+### Required Secrets
 
-Local preview example:
+Configure these in **GitHub → Settings → Secrets and variables → Actions:**
+- `SUPABASE_URL`
+- `SUPABASE_ANON_KEY`
+- `POWERSYNC_ENDPOINT_URL`
+
+### Deployment Options
+
+#### Option 1: Local Preview (Development)
+
+Download the `greyway-web-portal` artifact from the latest workflow run:
+
+```bash
+# Extract the artifact
+mkdir -p ~/Downloads/greyway-web
+tar -xzvf greyway-web-portal.tar.gz -C ~/Downloads/greyway-web
+
+# Serve locally (any static server works)
+cd ~/Downloads/greyway-web
+python3 -m http.server 8080
+# or: http-server . -p 8081
+
+# Open browser: http://localhost:8080
+```
+
+#### Option 2: GitHub Pages (Automatic)
+
+On push to `main`, the workflow automatically:
+1. Builds the web portal with `--base-href=/` (portable)
+2. Deploys to GitHub Pages
+
+**Live Site:** https://gabrielle247.github.io/greyway_co/
+
+_Note: One-time setup: **Settings → Pages → Source** = **GitHub Actions**._
+
+#### Option 3: Custom Domain / VPS
+
+1. Download `greyway-web-portal` artifact
+2. Extract to your web server:
+```bash
+tar -xzvf greyway-web-portal.tar.gz -C /var/www/greyway/
+```
+3. Configure nginx/Apache to serve the directory as root
+4. The app works from any domain or path (portable by design)
+
+### Local Build (Without CI)
+
+For development on your HP Notebook:
 
 ```bash
 flutter config --enable-web
 flutter pub get
-flutter build web --release \
-  --dart-define=SUPABASE_URL=$SUPABASE_URL \
-  --dart-define=SUPABASE_ANON_KEY=$SUPABASE_ANON_KEY \
-  --dart-define=POWERSYNC_ENDPOINT_URL=$POWERSYNC_ENDPOINT_URL
+flutter build web --release --base-href /
 cd build/web
 python3 -m http.server 8080
-# open http://localhost:8080
 ```
 
 ## Getting Started

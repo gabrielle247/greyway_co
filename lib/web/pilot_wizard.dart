@@ -391,7 +391,7 @@ class _SchoolApplicationWizardState extends State<SchoolApplicationWizard> {
               const SizedBox(height: 40),
               Text("ID: ${DateTime.now().millisecondsSinceEpoch}", style: TextStyle(color: Colors.white.withAlpha(50), fontSize: 12, letterSpacing: 2)),
               const SizedBox(height: 40),
-              TextButton(onPressed: () => Navigator.pop(context), child: Text("RETURN TO PORTAL", style: TextStyle(color: primaryBlue, fontWeight: FontWeight.bold))),
+              TextButton(onPressed: () => context.go('/'), child: Text("RETURN TO PORTAL", style: TextStyle(color: primaryBlue, fontWeight: FontWeight.bold))),
             ],
           ),
         ),

@@ -1,0 +1,694 @@
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:greyway_co/web/landing_page.dart';
+import 'package:greyway_co/web/pilot_wizard.dart';
+
+// Note: Ensure your local files are named correctly for these imports
+// import 'package:greyway_co/landing_page.dart'; 
+// import 'package:greyway_co/pilot_wizard.dart';
+
+void main() {
+  runApp(const GreywayWebsite());
+}
+
+/// The main entry point for the Greyway.Co Institutional Site
+class GreywayWebsite extends StatelessWidget {
+  const GreywayWebsite({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp.router(
+      title: 'Greyway.Co | Education Infrastructure',
+      debugShowCheckedModeBanner: false,
+      themeMode: ThemeMode.dark,
+      // Institutional Dark Blue Theme
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        scaffoldBackgroundColor: const Color(0xff121b22),
+        primaryColor: Colors.blue,
+        useMaterial3: true,
+        fontFamily: 'Poppins',
+        colorScheme: const ColorScheme.dark(
+          primary: Colors.blue,
+          secondary: Colors.blueAccent,
+          surface: Color(0xff1c2a35),
+          onSurface: Colors.white,
+        ),
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Color(0xff121b22),
+          elevation: 0,
+          centerTitle: true,
+          titleTextStyle: TextStyle(
+            color: Colors.white,
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+            letterSpacing: 2,
+          ),
+        ),
+      ),
+      routerConfig: _webRouter,
+    );
+  }
+}
+
+/// Router configuration separating the Landing Page from the Intake Wizard
+final GoRouter _webRouter = GoRouter(
+  initialLocation: '/',
+  routes: [
+    GoRoute(
+      path: '/',
+      name: 'home',
+      builder: (context, state) => const GreywayLandingPage(),
+    ),
+    GoRoute(
+      path: '/pilot',
+      name: 'pilot',
+      builder: (context, state) => const SchoolApplicationWizard(),
+    ),
+  ],
+);
+
+// --- PLACEHOLDER CLASSES ---
+// Replace these with your actual file contents if they are in separate filesimport 'package:equatable/equatable.dart';
+
+class SchoolApplication extends Equatable {
+  final String? id;
+  final DateTime? submittedAt;
+
+  // Institution
+  final String schoolName;
+  final String schoolType;
+  final String studentCountRange;
+  final String currentSystem;
+  final bool requiresOffline;
+
+  // Applicant
+  final String applicantName;
+  final String applicantRole;
+  final String contactEmail;
+  final String contactPhone;
+
+  // Consent
+  final bool authorizedSubmission;
+
+  const SchoolApplication({
+    this.id,
+    this.submittedAt,
+    required this.schoolName,
+    required this.schoolType,
+    required this.studentCountRange,
+    required this.currentSystem,
+    required this.requiresOffline,
+    required this.applicantName,
+    required this.applicantRole,
+    required this.contactEmail,
+    required this.contactPhone,
+    required this.authorizedSubmission,
+  });
+
+  Map<String, dynamic> toJson() {
+    return {
+      'school_name': schoolName,
+      'school_type': schoolType,
+      'student_count_range': studentCountRange,
+      'current_system': currentSystem,
+      'requires_offline': requiresOffline,
+      'applicant_name': applicantName,
+      'applicant_role': applicantRole,
+      'contact_email': contactEmail,
+      'contact_phone': contactPhone,
+      'authorized_submission': authorizedSubmission,
+    };
+  }
+
+  @override
+  List<Object?> get props => [id, schoolName, contactEmail];
+
+  // Based on the 'Infrastructure Authority' model
+  String getEligibilityTier() {
+    int score = 0;
+
+    // Logic based on institutional scale
+    if (studentCountRange == "201-500 Students" ||
+        studentCountRange == "500+ Students")
+      score += 3;
+    if (studentCountRange == "51-200 Students") score += 2;
+
+    // Logic based on infrastructure need
+    if (requiresOffline)
+      score += 2; // High priority for our PowerSync architecture
+
+    // Logic based on urgency (Manual records are high priority for migration)
+    if (currentSystem == "Manual Paper Records") score += 3;
+
+    if (score >= 6) return "HIGH_PRIORITY_PILOT";
+    if (score >= 4) return "STANDARD_PILOT";
+    return "RECORDS_ASSESSMENT_ONLY";
+  }
+}
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+
+class GreywayLandingPage extends StatelessWidget {
+  const GreywayLandingPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    // Greyway.Co Institutional Theme
+    final Color bgColor = const Color(0xff121b22);
+    final Color primaryBlue = Colors.blue;
+    final Color surfaceColor = const Color(0xff1c2a35);
+
+    return Scaffold(
+      backgroundColor: bgColor,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            // --- NAV BAR ---
+            _buildNavBar(context),
+
+            // --- HERO SECTION ---
+            _buildHero(context, primaryBlue),
+
+            // --- VALUE PROPOSITION ---
+            _buildFeatures(context, surfaceColor, primaryBlue),
+
+            // --- FOOTER ---
+            _buildFooter(context),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildNavBar(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          const Text("GREYWAY.CO", 
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, letterSpacing: 3)),
+          ElevatedButton(
+            onPressed: () => context.go('/pilot'),
+            style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
+            child: const Text("APPLY FOR PILOT", style: TextStyle(color: Colors.white)),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildHero(BuildContext context, Color primaryBlue) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 100),
+      width: double.infinity,
+      child: Column(
+        children: [
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            decoration: BoxDecoration(
+              color: primaryBlue.withAlpha(30),
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: const Text("OFFLINE-FIRST EDUCATION INFRASTRUCTURE",
+              style: TextStyle(color: Colors.blueAccent, fontSize: 10, fontWeight: FontWeight.bold, letterSpacing: 1.2)),
+          ),
+          const SizedBox(height: 32),
+          const Text("Modern Student Billing\nfor the Modern Institution",
+            textAlign: TextAlign.center,
+            style: TextStyle(color: Colors.white, fontSize: 48, fontWeight: FontWeight.bold, height: 1.1)),
+          const SizedBox(height: 24),
+          const Text(
+            "Fees Up provides automated billing, payment tracking, and real-time ledger management.\nDesigned for schools where reliability is non-negotiable.",
+            textAlign: TextAlign.center,
+            style: TextStyle(color: Colors.white70, fontSize: 18, height: 1.5),
+          ),
+          const SizedBox(height: 48),
+          SizedBox(
+            width: 250,
+            height: 60,
+            child: ElevatedButton(
+              onPressed: () => context.go('/pilot'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: primaryBlue,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              ),
+              child: const Text("START PILOT APPLICATION", 
+                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16)),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildFeatures(BuildContext context, Color surface, Color blue) {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 40),
+      child: Wrap(
+        spacing: 30,
+        runSpacing: 30,
+        alignment: WrapAlignment.center,
+        children: [
+          _featureCard(Icons.cloud_off, "Offline Resilience", "Operate without internet. Sync automatically when back online.", surface, blue),
+          _featureCard(Icons.account_balance, "Audit Ready", "Complete ledger history for every student and transaction.", surface, blue),
+          _featureCard(Icons.security, "Data Sovereignty", "Institutional data secured with Greyway.Co high-encryption standards.", surface, blue),
+        ],
+      ),
+    );
+  }
+
+  Widget _featureCard(IconData icon, String title, String desc, Color bg, Color accent) {
+    return Container(
+      width: 300,
+      padding: const EdgeInsets.all(32),
+      decoration: BoxDecoration(
+        color: bg,
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Icon(icon, color: accent, size: 32),
+          const SizedBox(height: 20),
+          Text(title, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18)),
+          const SizedBox(height: 12),
+          Text(desc, style: const TextStyle(color: Colors.white54, fontSize: 14, height: 1.5)),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildFooter(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(60),
+      child: Column(
+        children: [
+          const Divider(color: Colors.white10),
+          const SizedBox(height: 40),
+          const Text("GREYWAY.CO", style: TextStyle(color: Colors.white24, letterSpacing: 5, fontSize: 12)),
+          const SizedBox(height: 8),
+          const Text("© 2025 • A Batch Tech Venture", style: TextStyle(color: Colors.white10, fontSize: 10)),
+        ],
+      ),
+    );
+  }
+}import 'package:flutter/material.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
+
+// --- Greyway.Co Institutional Model ---
+class SchoolApplication {
+  String schoolName = "";
+  String schoolType = "Private";
+  String studentCountRange = "1-50 Students";
+  String currentSystem = "Manual Paper Records";
+  bool requiresOffline = true;
+  String applicantName = "";
+  String applicantRole = "Principal";
+  String email = "";
+  String phone = "";
+  bool authorized = false;
+
+  // Decision Logic: Scoring the Institution's Priority
+  String getEligibilityTier() {
+    int score = 0;
+    if (studentCountRange.contains("201") || studentCountRange.contains("500")) score += 3;
+    if (requiresOffline) score += 2;
+    if (currentSystem == "Manual Paper Records") score += 3;
+    
+    if (score >= 6) return "CRITICAL_PATH_PILOT";
+    if (score >= 4) return "STANDARD_INFRASTRUCTURE_PILOT";
+    return "OPERATIONAL_ASSESSMENT_ONLY";
+  }
+}
+
+class SchoolApplicationWizard extends StatefulWidget {
+  const SchoolApplicationWizard({super.key});
+
+  @override
+  State<SchoolApplicationWizard> createState() => _SchoolApplicationWizardState();
+}
+
+class _SchoolApplicationWizardState extends State<SchoolApplicationWizard> {
+  final PageController _pageController = PageController();
+  final SchoolApplication _appData = SchoolApplication();
+  
+  // Field Controllers
+  final _schoolNameController = TextEditingController();
+  final _applicantNameController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _phoneController = TextEditingController();
+  
+  int _currentStep = 0;
+  bool _isSubmitting = false;
+  bool _isComplete = false;
+
+  // Greyway.Co Institutional Brand Colors
+  final Color bgColor = const Color(0xff121b22);
+  final Color surfaceColor = const Color(0xff1c2a35);
+  final Color primaryBlue = Colors.blue;
+
+  void _nextStep() {
+    // 6 Steps total (0-5)
+    if (_currentStep < 5) {
+      _pageController.nextPage(
+        duration: const Duration(milliseconds: 500), 
+        curve: Curves.easeInOutCubic
+      );
+    } else {
+      _submitToGreywayPipeline();
+    }
+  }
+
+  Future<void> _submitToGreywayPipeline() async {
+    if (!_appData.authorized) return;
+    setState(() => _isSubmitting = true);
+    
+    try {
+      // Logic mapped to your Supabase 'school_applications' table
+      await Supabase.instance.client.from('school_applications').insert({
+        'school_name': _schoolNameController.text,
+        'school_type': _appData.schoolType,
+        'student_count_range': _appData.studentCountRange,
+        'current_system': _appData.currentSystem,
+        'requires_offline': _appData.requiresOffline,
+        'applicant_name': _applicantNameController.text,
+        'applicant_role': _appData.applicantRole,
+        'contact_email': _emailController.text,
+        'contact_phone': _phoneController.text,
+        'authorized_submission': _appData.authorized,
+        'eligibility_tier': _appData.getEligibilityTier(), // Internal scoring
+      });
+      
+      setState(() {
+        _isSubmitting = false;
+        _isComplete = true;
+      });
+    } catch (e) {
+      setState(() => _isSubmitting = false);
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Infrastructure Error: $e")),
+      );
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (_isSubmitting) return _buildLoading();
+    if (_isComplete) return _buildSuccess();
+
+    return Scaffold(
+      backgroundColor: bgColor,
+      body: Center(
+        child: Container(
+          constraints: const BoxConstraints(maxWidth: 900), // Optimized for Linux/Web
+          padding: const EdgeInsets.symmetric(vertical: 40),
+          child: Column(
+            children: [
+              _buildProgressHeader(),
+              Expanded(
+                child: PageView(
+                  controller: _pageController,
+                  physics: const NeverScrollableScrollPhysics(),
+                  onPageChanged: (i) => setState(() => _currentStep = i),
+                  children: [
+                    _stepEligibilityBrief(), // Phase 0
+                    _stepInstitution(),
+                    _stepCapacity(),
+                    _stepInfrastructure(),
+                    _stepApplicant(),
+                    _stepLegal(),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildProgressHeader() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 40),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text("GREYWAY.CO • INFRASTRUCTURE ASSESSMENT", 
+            style: TextStyle(color: Colors.white.withAlpha(100), letterSpacing: 3, fontSize: 10, fontWeight: FontWeight.bold)),
+          const SizedBox(height: 12),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(10),
+            child: LinearProgressIndicator(
+              value: (_currentStep + 1) / 6,
+              backgroundColor: primaryBlue.withAlpha(30),
+              color: primaryBlue,
+              minHeight: 6,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildStepLayout({required String tag, required String title, required Widget content}) {
+    return Padding(
+      padding: const EdgeInsets.all(40.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(tag, style: TextStyle(color: primaryBlue, fontWeight: FontWeight.bold, letterSpacing: 1.5, fontSize: 12)),
+          const SizedBox(height: 16),
+          Text(title, style: const TextStyle(color: Colors.white, fontSize: 32, fontWeight: FontWeight.bold, height: 1.2)),
+          const SizedBox(height: 40),
+          Expanded(child: SingleChildScrollView(child: content)),
+          const SizedBox(height: 20),
+          ElevatedButton(
+            onPressed: (_currentStep == 5 && !_appData.authorized) ? null : _nextStep,
+            style: ElevatedButton.styleFrom(
+              backgroundColor: primaryBlue,
+              minimumSize: const Size(double.infinity, 65),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+            ),
+            child: Text(_currentStep == 5 ? "SUBMIT ASSESSMENT" : "CONTINUE", 
+              style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 16)),
+          ),
+        ],
+      ),
+    );
+  }
+
+  // --- WIZARD STEPS ---
+
+  Widget _stepEligibilityBrief() {
+    return _buildStepLayout(
+      tag: "PHASE 0",
+      title: "Readiness Briefing",
+      content: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            "Greyway.Co pilot slots are reserved for institutions meeting specific operational standards. Before you apply, ensure you meet the following baseline requirements:",
+            style: TextStyle(color: Colors.white70, fontSize: 16, height: 1.5),
+          ),
+          const SizedBox(height: 24),
+          _buildBullet("Institutional authority to migrate financial records."),
+          _buildBullet("Willingness to participate in a 90-day assessment phase."),
+          _buildBullet("Minimum connectivity for initial synchronization."),
+        ],
+      ),
+    );
+  }
+
+  Widget _stepInstitution() {
+    return _buildStepLayout(
+      tag: "IDENTITY",
+      title: "Institution Identity",
+      content: Column(
+        children: [
+          _buildTextField(_schoolNameController, "Official Institution Name"),
+          const SizedBox(height: 20),
+          _buildDropdown("Institutional Category", ["Private", "Public", "Mission", "Academy"], _appData.schoolType, (v) => setState(() => _appData.schoolType = v!)),
+        ],
+      ),
+    );
+  }
+
+  Widget _stepCapacity() {
+    return _buildStepLayout(
+      tag: "SCALE",
+      title: "Operational Capacity",
+      content: Column(
+        children: [
+          _buildDropdown("Student Population", ["1-50 Students", "51-200 Students", "201-500 Students", "500+ Students"], _appData.studentCountRange, (v) => setState(() => _appData.studentCountRange = v!)),
+          const SizedBox(height: 20),
+          _buildDropdown("Current Financial System", ["Manual Paper Records", "General Spreadsheets", "Legacy Software"], _appData.currentSystem, (v) => setState(() => _appData.currentSystem = v!)),
+        ],
+      ),
+    );
+  }
+
+  Widget _stepInfrastructure() {
+    return _buildStepLayout(
+      tag: "INFRASTRUCTURE",
+      title: "Connectivity Requirements",
+      content: SwitchListTile(
+        title: const Text("Require Offline-First Support?", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+        subtitle: const Text("Enable local database caching for unreliable internet conditions.", style: TextStyle(color: Colors.white60, fontSize: 12)),
+        value: _appData.requiresOffline,
+        onChanged: (v) => setState(() => _appData.requiresOffline = v),
+        activeColor: primaryBlue,
+        contentPadding: EdgeInsets.zero,
+      ),
+    );
+  }
+
+  Widget _stepApplicant() {
+    return _buildStepLayout(
+      tag: "OWNERSHIP",
+      title: "Applicant Information",
+      content: Column(
+        children: [
+          _buildTextField(_applicantNameController, "Your Full Name"),
+          const SizedBox(height: 16),
+          _buildDropdown("Administrative Role", ["Principal", "Bursar", "IT Admin", "Director"], _appData.applicantRole, (v) => setState(() => _appData.applicantRole = v!)),
+          const SizedBox(height: 16),
+          _buildTextField(_emailController, "Official Contact Email", type: TextInputType.emailAddress),
+          const SizedBox(height: 16),
+          _buildTextField(_phoneController, "Contact Phone Number", type: TextInputType.phone),
+        ],
+      ),
+    );
+  }
+
+  Widget _stepLegal() {
+    return _buildStepLayout(
+      tag: "COMPLIANCE",
+      title: "Final Authorization",
+      content: Column(
+        children: [
+          Text(
+            "By submitting, you authorize Greyway.Co to conduct an internal eligibility scoring against your institution. You confirm that you have the governance authority to request pilot deployment.",
+            style: TextStyle(color: Colors.white.withAlpha(180), fontSize: 14, height: 1.6),
+          ),
+          const SizedBox(height: 30),
+          CheckboxListTile(
+            title: const Text("I am authorized to apply on behalf of this institution.", style: TextStyle(color: Colors.white, fontSize: 14)),
+            value: _appData.authorized,
+            onChanged: (v) => setState(() => _appData.authorized = v!),
+            controlAffinity: ListTileControlAffinity.leading,
+            activeColor: primaryBlue,
+            contentPadding: EdgeInsets.zero,
+          ),
+        ],
+      ),
+    );
+  }
+
+  // --- HELPERS ---
+
+  Widget _buildBullet(String text) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 12),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Icon(Icons.check_circle, color: primaryBlue, size: 18),
+          const SizedBox(width: 12),
+          Expanded(child: Text(text, style: const TextStyle(color: Colors.white70, fontSize: 14))),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildTextField(TextEditingController controller, String label, {TextInputType type = TextInputType.text}) {
+    return TextField(
+      controller: controller,
+      keyboardType: type,
+      style: const TextStyle(color: Colors.white),
+      decoration: InputDecoration(
+        labelText: label,
+        labelStyle: const TextStyle(color: Colors.white54),
+        filled: true,
+        fillColor: surfaceColor,
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: BorderSide.none),
+      ),
+    );
+  }
+
+  Widget _buildDropdown(String label, List<String> items, String current, Function(String?) onChanged) {
+    return DropdownButtonFormField<String>(
+      value: current,
+      dropdownColor: surfaceColor,
+      style: const TextStyle(color: Colors.white),
+      decoration: InputDecoration(
+        labelText: label,
+        labelStyle: const TextStyle(color: Colors.white54),
+        filled: true,
+        fillColor: surfaceColor,
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: BorderSide.none),
+      ),
+      items: items.map((i) => DropdownMenuItem(value: i, child: Text(i))).toList(),
+      onChanged: onChanged,
+    );
+  }
+
+  Widget _buildLoading() => Scaffold(backgroundColor: bgColor, body: const Center(child: CircularProgressIndicator()));
+
+  Widget _buildSuccess() {
+    return Scaffold(
+      backgroundColor: bgColor,
+      body: Center(
+        child: Container(
+          constraints: const BoxConstraints(maxWidth: 800),
+          padding: const EdgeInsets.all(40.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(Icons.account_balance, color: Colors.greenAccent, size: 80),
+              const SizedBox(height: 32),
+              const Text("Phase 0: Intake Complete", style: TextStyle(color: Colors.white, fontSize: 32, fontWeight: FontWeight.bold)),
+              const SizedBox(height: 24),
+              _buildPhaseIndicator(1),
+              const SizedBox(height: 32),
+              const Text(
+                "Your institution has entered the Greyway.Co Pilot Queue. Eligibility scoring is underway. Your primary contact will be notified of the deployment decision.",
+                textAlign: TextAlign.center,
+                style: TextStyle(color: Colors.white70, fontSize: 16, height: 1.6),
+              ),
+              const SizedBox(height: 40),
+              Text("ID: ${DateTime.now().millisecondsSinceEpoch}", style: TextStyle(color: Colors.white.withAlpha(50), fontSize: 12, letterSpacing: 2)),
+              const SizedBox(height: 40),
+              TextButton(onPressed: () => Navigator.pop(context), child: Text("RETURN TO PORTAL", style: TextStyle(color: primaryBlue, fontWeight: FontWeight.bold))),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildPhaseIndicator(int currentPhase) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: List.generate(4, (index) {
+        bool isDone = index < currentPhase;
+        bool isCurrent = index == currentPhase;
+        return Row(
+          children: [
+            Container(
+              width: 24, height: 24,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: isDone ? Colors.greenAccent : (isCurrent ? primaryBlue : Colors.white.withAlpha(20)),
+              ),
+              child: Center(child: Text("${index + 1}", style: const TextStyle(fontSize: 10, fontWeight: FontWeight.bold))),
+            ),
+            if (index < 3) Container(width: 40, height: 2, color: isDone ? Colors.greenAccent : Colors.white.withAlpha(20)),
+          ],
+        );
+      }),
+    );
+  }
+}

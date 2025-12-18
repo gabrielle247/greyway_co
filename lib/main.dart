@@ -13,7 +13,14 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // Load environment before boot so Supabase and downstream clients can read it.
-  await dotenv.load();
+  // In production (web build), secrets are injected via --dart-define.
+  // In local development, we try to load from .env asset.
+  try {
+    await dotenv.load(fileName: '.env');
+  } catch (e) {
+    // .env not found in debug mode is okay; secrets may come from --dart-define
+    debugPrint('Warning: .env file not found. Secrets must be provided via --dart-define or environment.');
+  }
 
   // Touch Secrets to fail fast if required keys are absent.
   Secrets.supabaseUrl;

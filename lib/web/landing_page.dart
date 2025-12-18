@@ -64,6 +64,14 @@ class GreywayLandingPage extends StatelessWidget {
           Row(
             children: [
               TextButton(
+                onPressed: () => context.go('/about'),
+                child: const Text(
+                  "Partnership",
+                  style: TextStyle(color: Colors.white70),
+                ),
+              ),
+              const SizedBox(width: 20),
+              TextButton(
                 onPressed: () {},
                 child: const Text(
                   "Infrastructure",
@@ -72,17 +80,9 @@ class GreywayLandingPage extends StatelessWidget {
               ),
               const SizedBox(width: 20),
               TextButton(
-                onPressed: () {},
+                onPressed: () => context.go('/pilot'),
                 child: const Text(
-                  "Deployment",
-                  style: TextStyle(color: Colors.white70),
-                ),
-              ),
-              const SizedBox(width: 20),
-              TextButton(
-                onPressed: () {},
-                child: const Text(
-                  "Partnership",
+                  "Assessment",
                   style: TextStyle(color: Colors.white70),
                 ),
               ),

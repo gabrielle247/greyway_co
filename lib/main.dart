@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:go_router/go_router.dart';
 import 'package:greyway_co/config/secrets.dart';
+import 'package:greyway_co/web/about_page.dart';
 import 'package:greyway_co/web/landing_page.dart';
 import 'package:greyway_co/web/pilot_wizard.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 // Note: Ensure your local files are named correctly for these imports
-// import 'package:greyway_co/landing_page.dart'; 
+// import 'package:greyway_co/landing_page.dart';
 // import 'package:greyway_co/pilot_wizard.dart';
 
 Future<void> main() async {
@@ -19,7 +20,9 @@ Future<void> main() async {
     await dotenv.load(fileName: '.env');
   } catch (e) {
     // .env not found in debug mode is okay; secrets may come from --dart-define
-    debugPrint('Warning: .env file not found. Secrets must be provided via --dart-define or environment.');
+    debugPrint(
+      'Warning: .env file not found. Secrets must be provided via --dart-define or environment.',
+    );
   }
 
   // Touch Secrets to fail fast if required keys are absent.
@@ -48,7 +51,9 @@ class GreywayWebsite extends StatelessWidget {
       // Greyway Co Institutional Dark Blue Theme (Per Infrastructure Briefing)
       darkTheme: ThemeData(
         brightness: Brightness.dark,
-        scaffoldBackgroundColor: const Color(0xff121b22), // Institutional Dark Blue
+        scaffoldBackgroundColor: const Color(
+          0xff121b22,
+        ), // Institutional Dark Blue
         primaryColor: Colors.blue,
         useMaterial3: true,
         fontFamily: 'Poppins', // Required by Greyway Co branding standards
@@ -75,7 +80,7 @@ class GreywayWebsite extends StatelessWidget {
   }
 }
 
-/// Router configuration separating the Landing Page from the Intake Wizard
+/// Router configuration for Greyway Co Institutional Infrastructure Gateway
 final GoRouter _webRouter = GoRouter(
   initialLocation: '/',
   routes: [
@@ -83,6 +88,11 @@ final GoRouter _webRouter = GoRouter(
       path: '/',
       name: 'home',
       builder: (context, state) => const GreywayLandingPage(),
+    ),
+    GoRoute(
+      path: '/about',
+      name: 'about',
+      builder: (context, state) => const AboutPage(),
     ),
     GoRoute(
       path: '/pilot',

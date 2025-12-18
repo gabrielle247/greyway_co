@@ -120,7 +120,7 @@ class GreywayLandingPage extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
             ),
             child: const Text(
-              "GATEWAY TO THE MODERN SCHOOL",
+              "BORN IN ZIMBABWE, BUILT FOR THE WORLD",
               style: TextStyle(
                 color: Colors.blueAccent,
                 fontSize: 11,
@@ -131,7 +131,7 @@ class GreywayLandingPage extends StatelessWidget {
           ),
           const SizedBox(height: 40),
           const Text(
-            "Decision Infrastructure for\nInstitutional Data Sovereignty",
+            "Offline-First Billing for\nTeachers, Tutors & Schools",
             textAlign: TextAlign.center,
             style: TextStyle(
               color: Colors.white,
@@ -142,7 +142,7 @@ class GreywayLandingPage extends StatelessWidget {
           ),
           const SizedBox(height: 28),
           const Text(
-            "Greyway Co delivers Fees Up—a foundational infrastructure deployment for audit-ready, resilient school operations.\nNot a utility. A gateway. Built for institutions where reliability is non-negotiable.",
+            "Fees Up was born at KwaLegend Academy in Harare to solve a teacher's billing problem.\nNow it helps teachers with extra lessons (0-10 students), tutoring centers, and schools across Zimbabwe.\nFree for individuals. Trial for schools. Works offline. Syncs when connected.",
             textAlign: TextAlign.center,
             style: TextStyle(
               color: Colors.white70,
@@ -153,7 +153,7 @@ class GreywayLandingPage extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           const Text(
-            "Conceptualized by Nyasha Gabriel & Sir Legend (KwaLegend)",
+            "Conceptualized by Nyasha Gabriel & Sir Legend (Teacher, KwaLegend Academy)",
             textAlign: TextAlign.center,
             style: TextStyle(
               color: Colors.white38,
@@ -164,7 +164,7 @@ class GreywayLandingPage extends StatelessWidget {
           ),
           const SizedBox(height: 60),
           SizedBox(
-            width: 320,
+            width: 300,
             height: 60,
             child: ElevatedButton(
               onPressed: () => context.go('/pilot'),
@@ -175,7 +175,7 @@ class GreywayLandingPage extends StatelessWidget {
                 ),
               ),
               child: const Text(
-                "BEGIN ELIGIBILITY ASSESSMENT",
+                "START FREE / TRY SCHOOL TRIAL",
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
@@ -577,7 +577,7 @@ class GreywayLandingPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const Text(
-            "Institutional Onboarding",
+            "Pricing",
             style: TextStyle(
               color: Colors.white,
               fontSize: 40,
@@ -586,7 +586,7 @@ class GreywayLandingPage extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           const Text(
-            "Greyway Co selects institutions based on operational readiness. No financial commitment during assessment phase.",
+            "Free for individual teachers and tutors. Schools get a 1-month trial with full features.",
             textAlign: TextAlign.center,
             style: TextStyle(color: Colors.white70, fontSize: 16),
           ),
@@ -595,27 +595,24 @@ class GreywayLandingPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               _pricingTier(
-                "Standard Assessment",
-                "No Cost",
-                "90-day evaluation",
+                "Individual (Free Forever)",
+                "Free",
+                "For teachers & tutors",
                 [
-                  "Up to 500 student capacity",
-                  "Full infrastructure deployment",
-                  "Institutional support portal",
-                  "Data migration assistance",
+                  "0-10 students",
+                  "Offline-first billing",
+                  "Real-time sync",
+                  "Receipt generation",
+                  "Perfect for extra lessons",
                 ],
               ),
-              _pricingTier(
-                "Priority Deployment",
-                "No Cost",
-                "Expedited vetting + 90 days",
-                [
-                  "Up to 2000 student capacity",
-                  "Full infrastructure deployment",
-                  "Dedicated deployment engineer",
-                  "Custom integration pathways",
-                ],
-              ),
+              _pricingTier("School Trial", "Free", "1 month full access", [
+                "Unlimited students",
+                "All premium features",
+                "Multi-device sync",
+                "After trial: Limited support & usage",
+                "Zimbabwe schools prioritized",
+              ]),
             ],
           ),
         ],
@@ -906,7 +903,7 @@ class GreywayLandingPage extends StatelessWidget {
                   ),
                   SizedBox(height: 20),
                   Text(
-                    "Conceptualized by Nyasha Gabriel & Sir Legend (KwaLegend)",
+                    "Conceptualized by Nyasha Gabriel & Sir Legend (Teacher, KwaLegend Academy, Harare)",
                     style: TextStyle(
                       color: Colors.white38,
                       fontSize: 11,
@@ -915,7 +912,7 @@ class GreywayLandingPage extends StatelessWidget {
                   ),
                   SizedBox(height: 8),
                   Text(
-                    "Strategic Partnership: Sir Legend holds 30% equity stake",
+                    "Born at KwaLegend Academy, Zimbabwe | Sir Legend holds 30% equity",
                     style: TextStyle(color: Colors.white24, fontSize: 10),
                   ),
                   SizedBox(height: 20),
@@ -925,7 +922,7 @@ class GreywayLandingPage extends StatelessWidget {
                   ),
                   SizedBox(height: 4),
                   Text(
-                    "Development sponsored by KwaLegend",
+                    "Built for Zimbabwe teachers, tutors, and schools",
                     style: TextStyle(color: Colors.white10, fontSize: 10),
                   ),
                 ],
@@ -945,7 +942,7 @@ class GreywayLandingPage extends StatelessWidget {
                         ),
                       ),
                       child: Text(
-                        "BEGIN INSTITUTIONAL ASSESSMENT",
+                        "START FREE / TRY SCHOOL TRIAL",
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,

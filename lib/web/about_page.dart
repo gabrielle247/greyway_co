@@ -142,7 +142,7 @@ class AboutPage extends StatelessWidget {
           ),
           const SizedBox(height: 28),
           const Text(
-            "Greyway Co (formerly Batch Tech Venture) delivers foundational infrastructure for schools.\nConceptualized by Nyasha Gabriel & Sir Legend (KwaLegend).",
+            "Born at Kwalegend Academy in Harare, Zimbabwe. Built for teachers, extra lessons instructors, and schools.\nConceptualized by Nyasha Gabriel & Sir Legend (Teacher at KwaLegend Academy).",
             textAlign: TextAlign.center,
             style: TextStyle(
               color: Colors.white70,
@@ -187,9 +187,9 @@ class AboutPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 24),
                 const Text(
-                  "The idea for Fees Up emerged from a simple observation: schools in underserved regions face operational paralysis when internet connectivity fails—yet their financial operations are the lifeblood of institutional continuity.\n\n"
-                  "Sir Legend (KwaLegend) recognized this institutional gap during field work with schools across Kenya. He envisioned an open gateway—not a closed proprietary system—that would democratize access to resilient billing infrastructure for all school administrators.\n\n"
-                  "Nyasha Gabriel, the lead architect, transformed this vision into foundational infrastructure: offline-first architecture, real-time sync capabilities, and audit-ready ledgers. Together, they built not a tool, but a decision system.",
+                  "Fees Up was born from a real classroom need at KwaLegend Academy in Harare, Zimbabwe. Sir Legend, a teacher managing extra lessons and student billing, faced a daily challenge: tracking fees manually while internet connectivity was unreliable.\n\n"
+                  "He approached Nyasha Gabriel with a simple request: build something that works offline and syncs when connected. After completing the first prototype for KwaLegend Academy, they realized the solution could help thousands of teachers and schools across Zimbabwe—and beyond.\n\n"
+                  "The vision expanded: make it an open gateway for individual teachers running extra lessons (0-10 students), tutoring centers, and full schools. Free for individuals. Trial-based for institutions. Built for Zimbabwe, scalable globally.",
                   style: TextStyle(
                     color: Colors.white70,
                     fontSize: 16,
@@ -230,7 +230,7 @@ class AboutPage extends StatelessWidget {
                   const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 40),
                     child: Text(
-                      "\"Make it an open gateway for all school administrators\"",
+                      "\"Build something that works offline, syncs when connected, and helps teachers like me manage fees without the headache\"",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.white60,
@@ -279,26 +279,26 @@ class AboutPage extends StatelessWidget {
                 surface,
                 blue,
                 "Nyasha Gabriel",
-                "Lead Architect & Visionary",
-                "Primary architect of Fees Up infrastructure. Responsible for technical vision, offline-first architecture, and institutional governance frameworks. Leads all deployment engineering and infrastructure partnerships.",
+                "Lead Architect & Developer",
+                "Software engineer and primary architect of Fees Up. Transformed Sir Legend's classroom need into a scalable offline-first billing system. Responsible for technical implementation, architecture design, and ongoing development of the platform.",
                 [
-                  "System Architecture",
-                  "Infrastructure Design",
-                  "Deployment Engineering",
-                  "Technical Leadership",
+                  "System Architecture & Development",
+                  "Offline-First Infrastructure",
+                  "Real-Time Sync Implementation",
+                  "Platform Scalability",
                 ],
               ),
               _founderCard(
                 surface,
                 blue,
                 "Sir Legend",
-                "Strategic Partner & Co-Founder",
-                "Original visionary behind the \"open gateway\" concept. Holds 30% equity stake. Contributed foundational marketing strategy and institutional positioning. Sponsors development data and testing infrastructure through KwaLegend.",
+                "Teacher & Co-Founder (KwaLegend Academy, Harare)",
+                "Teacher at KwaLegend Academy in Harare, Zimbabwe. Original visionary who identified the need for offline billing while managing extra lessons. Holds 30% equity stake. Provides real-world testing, teacher insights, and marketing strategy from the classroom perspective.",
                 [
-                  "Original Idea Contributor",
-                  "Marketing Strategy",
-                  "Development Sponsorship",
-                  "Institutional Partnerships",
+                  "Original Problem Identifier",
+                  "Classroom Testing & Feedback",
+                  "Teacher/Tutor Use Case Design",
+                  "Zimbabwe Market Strategy",
                 ],
               ),
             ],

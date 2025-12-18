@@ -262,7 +262,6 @@ class _SchoolApplicationWizardState extends State<SchoolApplicationWizard> {
         subtitle: const Text("Enable local database caching for unreliable internet conditions.", style: TextStyle(color: Colors.white60, fontSize: 12)),
         value: _appData.requiresOffline,
         onChanged: (v) => setState(() => _appData.requiresOffline = v),
-        activeColor: primaryBlue,
         contentPadding: EdgeInsets.zero,
       ),
     );
@@ -302,7 +301,6 @@ class _SchoolApplicationWizardState extends State<SchoolApplicationWizard> {
             value: _appData.authorized,
             onChanged: (v) => setState(() => _appData.authorized = v!),
             controlAffinity: ListTileControlAffinity.leading,
-            activeColor: primaryBlue,
             contentPadding: EdgeInsets.zero,
           ),
         ],
@@ -352,7 +350,7 @@ class _SchoolApplicationWizardState extends State<SchoolApplicationWizard> {
 
   Widget _buildDropdown(String label, List<String> items, String current, Function(String?) onChanged) {
     return DropdownButtonFormField<String>(
-      value: current,
+      initialValue: current,
       dropdownColor: surfaceColor,
       style: const TextStyle(color: Colors.white),
       decoration: InputDecoration(
